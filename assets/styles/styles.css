@@ -54,7 +54,12 @@ h6 {
     color: var(--background);
 }
 
-.nav-link:hover {
+.nodemcu-link:hover {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.nav-link-hover:hover {
     color: var(--accent);
     font-weight: 600;
 }
@@ -90,6 +95,10 @@ h6 {
 
 }
 
+.header {
+    margin-bottom: 30px;
+}
+
 .feat-text {
     text-align: center;
 }
@@ -103,8 +112,8 @@ h6 {
 .card {
     background-color: var(--primary);
     border: 2px solid;
-    
-
+    height: 390px;
+    width: 300px;
 }
 
 .card-row {
