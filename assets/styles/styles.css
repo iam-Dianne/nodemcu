@@ -36,6 +36,7 @@ h6 {
 
 .navbar {
     box-shadow: var(--secondary) 0px 3px 8px;
+    padding: 20px 100px;
 }
 
 .brand-logo {
@@ -51,6 +52,11 @@ h6 {
     border-radius: 8px;
     background-color: var(--accent);
     color: var(--background);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 
