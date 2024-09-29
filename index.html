@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- POPPINS FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- PLAYFAIR DISPLAY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>NodeMCU</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/brand.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-5-strong navbar-dark sticky-top position-fixed w-100" style="background-color: #080f12;">
+        <div class="container-fluid">
+            <div class="container nav-contents d-flex justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <img class="brand-logo me-2" src="assets/images/brand.png" alt="nodemcu-logo">
+                    NodeMCU
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-c d-flex justify-content-endollapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-3">
+                            <a class="nav-link" aria-current="page" href="#hero">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="#tutorial">Tutorials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nodemcu-link" href="https://www.nodemcu.com/index_en.html">NodeMCU Site</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="row hero-contents">
+                <div class="col hero-img">
+                    <img class="nodemcu-img" src="assets/images/nodemcu.png" alt="nodemcu">
+                </div>
+                <div class="col hero-text d-flex flex-column justify-content-center">
+                    <h1 class="fw-bold mb-4 primary-text">NodeMCU</h1>
+                    <p>NodeMCU is an open-source LUA based firmware developed for the ESP8266 wifi chip. By exploring functionality with the ESP8266 chip, NodeMCU firmware comes with the ESP8266 Development board/kit i.e. NodeMCU Development board.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col feat-text">
+                    <h4 class="fw-bold mb-4">F E A T U R E S</h4>
+                </div>
+            </div>
+            <div class="row card-row">
+                <div class="col feat-col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/wifi-router.png" class="card-img-top card-img" alt="...">
+                        <div class="card-body feat-text">
+                            <h6 class="fw-bold">Wi-Fi</h6>
+                            <p class="card-text">
+                                NodeMCU is powered by the ESP8266 or ESP32 chip, which has built-in Wi-Fi, making it perfect for IoT (Internet of Things) projects. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col feat-col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/lua-arduino.png" class="card-img-top card-img" alt="...">
+                        <div class="card-body feat-text">
+                            <h6 class="fw-bold">Lua and Arduino IDE Support</h6>
+                            <p class="card-text">
+                                NodeMCU initially used Lua scripting language for programming, making it easy to write IoT applications. Later, it gained support for Arduino IDE.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col feat-col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/comp.png" class="card-img-top card-img" alt="...">
+                        <div class="card-body feat-text">
+                            <h6 class="fw-bold"> GPIO (General Purpose Input/Output) Pins</h6>
+                            <p class="card-text">
+                                The NodeMCU board has multiple GPIO pins (typically 10-16 pins depending on the version), allowing you to connect various sensors, actuators, LEDs, and other components.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tutorial" class="tutorial">
+        <div class="container">
+            <div class="row">
+                <div class="col feat-text">
+                    <h4 class="fw-bold mb-3">T U T O R I A L S</h4>
+                    <p>Explore our comprehensive NodeMCU tutorials, designed for all skill levels. <br>Also learn the Arduino language <a href="https://www.arduino.cc/reference/en/">here!</a></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-4">
+                <div class="col">
+                    <h5>Starter Exercises</h5>
+                </div>
+                <div class="col">
+                    <h5>Advanced Exercises</h5>
+                </div>
+                <div class="col">
+                    <h5>IoT Exercises</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <hr>
+        <div class="container">
+            <div class="row ">
+                <p class="footer-text">&copy 2024  Dianne Ramirez | Mondriaan Aura College</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

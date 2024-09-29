@@ -1,0 +1,136 @@
+:root{
+    --text: #ebf0f2;
+    --background: #080f12;
+    --primary: #0f181c;
+    --secondary: #186987;
+    --accent: #23b8ed;
+    
+    --header-one: 3rem;
+    --header-two: 2rem;
+    --header-three: 1.3rem;
+    --header-weight: 600;
+
+    --main-font-size: 1rem;
+    --mini-text-font: 0.7rem;
+
+    --main-font: "Playfair Display", serif;
+    --secondary-font: "Poppins", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: var(--secondary-font);
+    color: var(--text);
+
+}
+
+h6 {
+    color: var(--secondary);
+}
+
+.navbar {
+    box-shadow: var(--secondary) 0px 3px 8px;
+}
+
+.brand-logo {
+    height: 30px;
+}
+
+.nav-contents {
+    padding: 1rem 3rem;
+}
+
+.nodemcu-link {
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+
+/* HERO SECTION */
+
+#hero {
+    /* background-color: red; */
+    height: 100vh;
+    width: 100%;
+    padding: 5rem 0 0 0;
+    display: flex;
+    align-items: center;
+
+}
+
+.nodemcu-img {
+    height: 320px;
+}
+
+.primary-text {
+    color: var(--accent);
+}
+
+/* FEATURES */
+
+#features,
+#tutorial {
+    height: 100vh;
+    width: 100%;
+    padding: 8rem 0 0 0;
+
+}
+
+.feat-text {
+    text-align: center;
+}
+
+.feat-col {
+    
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--primary);
+    border: 2px solid;
+    
+
+}
+
+.card-row {
+    display: flex;
+    justify-content: center;
+}
+
+.card-img {
+    padding: 10px 70px 0 70px;
+    background-color: var(--background);
+
+}
+
+.card-body {
+    color: var(--text);
+}
+
+/* TUTORIAL */
+
+a {
+    /* text-decoration: none; */
+    color: var(--secondary);
+}
+
+
+
+/* FOOTER */
+
+.footer{
+    margin: 10rem 0;
+}
+
+.footer-text {
+    text-align: center;
+}
