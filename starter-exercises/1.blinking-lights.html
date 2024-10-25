@@ -61,6 +61,30 @@
             <video width="800px" src="videos/blinking-lights.mp4" controls></video>
             <br><br><br>
 
+            <!-- Button trigger modal -->
+            <button type="button" class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#blinking-lights-diagram">
+                View Wiring Diagram
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="blinking-lights-diagram" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header primary-text">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Blinking Lights Diagram</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img width="600px" src="images/blinking-lights.png" alt="">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn primary-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <br><br><br>
             <h4>Code Snippet</h4>
             <ul>
                 <li>The <span class="primary-text">setup()</span> function initializes and sets the initial values, while the <span class="primary-text">loop()</span> function loops the program, allowing it to change.</li>

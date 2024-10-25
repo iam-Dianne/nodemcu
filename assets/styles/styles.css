@@ -185,3 +185,13 @@ a {
 .code-text{
     color: var(--background);
 }
+
+.primary-btn {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
