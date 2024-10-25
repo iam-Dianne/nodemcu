@@ -61,30 +61,13 @@
             <video width="800px" src="videos/blinking-lights.mp4" controls></video>
             <br><br><br>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#blinking-lights-diagram">
-                View Wiring Diagram
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="blinking-lights-diagram" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header primary-text">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Blinking Lights Diagram</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img width="600px" src="images/blinking-lights.png" alt="">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn primary-btn" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                </div>
-            </div>
+            <h4>Wiring Diagram</h4> <br>
+            <img width="600px" src="images/blinking-lights.png" alt="">
 
-            <br><br><br>
+            <br><br>
+            
+
+            <br><br>
             <h4>Code Snippet</h4>
             <ul>
                 <li>The <span class="primary-text">setup()</span> function initializes and sets the initial values, while the <span class="primary-text">loop()</span> function loops the program, allowing it to change.</li>
@@ -94,44 +77,69 @@
             </ul>
             <br>
 
-            <div class="code-container">
-                <pre>
-                    <code class="code-text">
-                        #include &lt;ESP8266WiFi.h&gt;
+            <!-- Button trigger modal -->
+            <button type="button" class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#blinking-lights-diagram">
+                View Code Snippet
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="blinking-lights-diagram" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header primary-text">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Blinking Lights Code</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre>
+                            <code class="code-text">
 
-                            int led1 = D0;
-                            int led2 = D1;
-                            int led3 = D2;
-                            int led4 = D3;
-                            int led5 = D4;
-                            
-                            void setup()
-                            {
-                              pinMode(led1, OUTPUT);
-                              pinMode(led2, OUTPUT);
-                              pinMode(led3, OUTPUT);
-                              pinMode(led4, OUTPUT);
-                              pinMode(led5, OUTPUT);
-                            }
-                            
-                            void loop()
-                            {
-                              digitalWrite(led1, HIGH);
-                              digitalWrite(led2, HIGH);
-                              digitalWrite(led3, HIGH);
-                              digitalWrite(led4, HIGH);
-                              digitalWrite(led5, HIGH);
-                              delay(500);
-                            
-                              digitalWrite(led1, LOW);
-                              digitalWrite(led2, LOW);
-                              digitalWrite(led3, LOW);
-                              digitalWrite(led4, LOW);
-                              digitalWrite(led5, LOW);
-                              delay(500);
-                            }
-                    </code>
-                </pre>
+#include &lt;ESP8266WiFi.h&gt;
+
+int led1 = D0;
+int led2 = D1;
+int led3 = D2;
+int led4 = D3;
+int led5 = D4;
+
+void setup()
+{
+    pinMode(led1, OUTPUT);
+    pinMode(led2, OUTPUT);
+    pinMode(led3, OUTPUT);
+    pinMode(led4, OUTPUT);
+    pinMode(led5, OUTPUT);
+}
+
+void loop()
+{
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+    digitalWrite(led5, HIGH);
+    delay(500);
+
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
+    delay(500);
+}
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn primary-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="code-container">
+                
             </div>
             
         </div>
