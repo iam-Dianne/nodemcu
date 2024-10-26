@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- POPPINS FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- PLAYFAIR DISPLAY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="stylesheet" href="../assets/styles/mediaqueries.css">
+    <title>NodeMCU | Keycard</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/brand.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-5-strong navbar-dark sticky-top " style="background-color: #080f12;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html#hero">
+                <img class="brand-logo me-2" src="../assets/images/brand.png" alt="nodemcu-logo">
+                NodeMCU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3">
+                        <a class="nav-link nav-link-hover" aria-current="page" href="../index.html#hero">Home</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link nav-link-hover" href="../index.html#features">Features</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link nav-link-hover" href="../index.html#tutorial">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nodemcu-link" href="https://www.nodemcu.com/index_en.html" target="_blank">NodeMCU Site</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="ex">
+        <div class="container">
+            <h2>Keycard (RFID)</h2>
+            <hr>
+            In this project, the RFID serves as a keycard wherein the tags can be granted access or denied. The LCD shows the name of the user and the access status, while the buzzer alerts when the access id denied or granted.
+            
+            <br><br>
+            Components used:
+            <ul>
+                <li>RFID reader</li>
+                <li>RFID tag/card</li>
+                <li>LCD Display</li>
+                <li>Buzzer</li>
+            </ul>
+            
+
+            <video width="800px" src="videos/keycard.mp4" controls></video>
+            <br><br><br>
+
+            <h4>Wiring Diagram</h4> <br>
+            <img width="600px" src="images/keycard.png" alt="">
+
+            <br><br>
+            
+
+            <br><br>
+            <h4>Code Snippet</h4>
+            Libraries to install:
+            <ul>
+                <li>MFRC522.h</li>
+                <li>LiquidCrystal_I2C.h</li>
+            </ul>
+            <!-- <ul>
+                <li>The <span class="primary-text">setup()</span> function initializes and sets the initial values, while the <span class="primary-text">loop()</span> function loops the program, allowing it to change.</li>
+                <li>The <span class="primary-text">pinMode()</span> function configures the specified pin to behave either as an input or an output.</li>
+                <li>The <span class="primary-text">digitalWrite()</span> function gives value, either HIGH or LOW to a digital pin.</li>
+                
+            </ul> -->
+            <br>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#rgbbtn-diagram">
+                View Code Snippet
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="rgbbtn-diagram" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header primary-text">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Keycard using RFID</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre>
+                            <code class="code-text">
+
+#include &lt;MFRC522.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;Wire.h&gt;
+
+#define RST_PIN         D3   
+#define SS_PIN          D4  
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);  // Create MFRC522 instance
+LiquidCrystal_I2C lcd(0x27,16,2);
+    String uid1 = "04 5C 5F 2B"; 
+    String uid1Name = "Dianne";
+
+    String uid2 = "F4 F5 27 2A"; 
+    String uid2Name = "JD";
+
+    String tagID = "";
+
+int buzzer = D0;
+bool accessDenied = true;
+
+void setup() {
+
+    lcd.init();
+    lcd.backlight();
+    SPI.begin();          // Initiate  SPI bus
+    mfrc522.PCD_Init();
+    
+
+    lcd.clear();
+    lcd.print("Welcome!");
+    lcd.setCursor(0, 1);
+    lcd.print("Scan Your Card >");
+
+    Serial.begin(9600);
+
+}
+
+
+void loop() { 
+    
+    Serial.begin(9600);
+    
+    // RFID checking
+    while (getID()) {
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+
+    if (tagID == uid1) {
+
+        lcd.setCursor(0, 0);
+        lcd.print("Access Granted!");
+        lcd.setCursor(0, 1);
+        lcd.print("Hello, ");
+        lcd.print(uid1Name);
+        lcd.print("!");
+
+        tone(buzzer, 1000);
+        digitalWrite(10,HIGH);
+        delay(80);
+        digitalWrite(10,LOW);
+        noTone(buzzer);
+        delay(80);
+        tone(buzzer, 1000);
+        digitalWrite(10,HIGH);
+        delay(80);
+        noTone(buzzer);
+        digitalWrite(10,LOW);
+
+        
+        accessDenied = false;
+
+    }else if (tagID == uid2){
+
+        lcd.setCursor(0, 0);
+        lcd.print("Access Granted!");
+        lcd.setCursor(0, 1);
+        lcd.print("Hello, ");
+        lcd.print(uid2Name);
+        lcd.print("!");
+
+        tone(buzzer, 1000);
+        digitalWrite(10,HIGH);
+        delay(80);
+        digitalWrite(10,LOW);
+        noTone(buzzer);
+        delay(80);
+        tone(buzzer, 1000);
+        digitalWrite(10,HIGH);
+        delay(80);
+        noTone(buzzer);
+        digitalWrite(10,LOW);
+
+        accessDenied = false;
+
+
+    }else {
+
+        lcd.print("Access Denied!");
+        lcd.setCursor(0, 1);
+        lcd.print("Invalid ID ");
+
+        tone(buzzer, 300);
+        digitalWrite(10,HIGH);
+        delay(200);
+        noTone(buzzer);
+        digitalWrite(10,LOW);
+        delay(200);
+        tone(buzzer, 300);
+        digitalWrite(10,HIGH);
+        delay(200);
+        noTone(buzzer);
+        digitalWrite(10,LOW);
+        delay(200);
+        tone(buzzer, 300);
+        digitalWrite(10,HIGH);
+        delay(200);
+        noTone(buzzer);
+        digitalWrite(10,LOW);
+        
+        accessDenied = true;
+
+    }
+
+    // Wait for 4 seconds before scanning another card
+    delay(4000);  
+    lcd.clear();
+    lcd.print("Welcome!");
+    lcd.setCursor(0, 1);
+    lcd.print("Scan Your Card >");
+    }
+
+    
+}
+
+
+// function for getting the ID
+boolean getID() {
+    // Getting ready for Reading PICCs
+    if (!mfrc522.PICC_IsNewCardPresent()) {
+    return false;
+    }
+    if (!mfrc522.PICC_ReadCardSerial()) {
+    return false;
+    }
+    tagID = "";
+    for (uint8_t i = 0; i < mfrc522.uid.size; i++) {
+    tagID += String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+    tagID += String(mfrc522.uid.uidByte[i], HEX);
+    }
+    tagID.toUpperCase();
+    tagID.trim(); // Trim any leading/trailing spaces
+    Serial.println(tagID);  // Print the tag ID for debugging
+    mfrc522.PICC_HaltA();  // Stop reading
+    return true;
+}
+                                    
+                                
+                                
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn primary-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <br><hr><br>
+        &copy; 2024 <br>
+        Dianne Ramirez
+    </main>
+
+    
+    
+
+</body>
+</html>
